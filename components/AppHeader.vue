@@ -4,7 +4,7 @@ import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigge
 </script>
 
 <template>
-  <div class="p-2 bg-background">
+  <div class="fixed top-0 w-full p-2 bg-background">
     <div class="flex items-center justify-start p-1 px-3 w-full h-12 rounded-xl">
       <div class="h-full w-1/3 flex opacity-100 hover:bg-secondary transition-colors duration-150 hover:cursor-pointer rounded-md">
         <NuxtImg class="object-contain scale-95 p-1" src="/logo_with_text.png"/>
@@ -28,6 +28,8 @@ import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigge
             </DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
+        <Button variant="ghost">Meet the team</Button>
+        <Button variant="ghost">Docs</Button>
       </div>
 
       <div class="w-1/3 flex justify-end">

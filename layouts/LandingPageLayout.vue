@@ -8,7 +8,7 @@
 
     <div class="absolute flex-1 w-full h-full z-10">
       <ParticlesBg
-        class="sticky opacity-30 h-full"
+        class="fixed opacity-70 h-full"
         :quantity="250"
         :ease="100"
         :color="isDark ? '#FFF' : '#000'"
