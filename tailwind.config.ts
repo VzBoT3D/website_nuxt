@@ -9,6 +9,7 @@ export default {
   theme: {
     fontFamily: {
       'sans': ['Arial', 'sans-serif'],
+      'display': ['"Plus Jakarta Sans"']
     },
     extend: {
       colors: {

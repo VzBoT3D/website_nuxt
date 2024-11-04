@@ -7,7 +7,9 @@ export default defineNuxtConfig({
     'shadcn-nuxt',
     'radix-vue/nuxt',
     '@nuxtjs/color-mode',
-    '@nuxt/image'
+    '@nuxt/image',
+    '@vueuse/motion/nuxt',
+    '@nuxt/fonts'
   ],
   image: {
     dir: "public",

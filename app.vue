@@ -5,3 +5,9 @@
     </NuxtLayout>
   </div>
 </template>
+
+<script setup lang="ts">
+useHead({
+  title: "VzBoT | Official Webpage"
+})
+</script>
