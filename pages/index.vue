@@ -13,22 +13,22 @@
           class="text-5xl !text-primary"
         />
       </div>
-      <div class="flex gap-8 justify-center">
-        <PrinterCard name="VZ235" src="/vz235_preview.jpg" description="Our 235x235 high speed printer platform"/>
-        <PrinterCard name="VZ330" src="/vz330_preview.jpg" description="The first VzBoT based on the Tronxy X5SA"/>
+      <div v-motion-fade-visible class="flex gap-8 justify-center">
+        <PrinterCard name="VZ235" src="/vz235_preview.jpg" description="Our 235x235 high speed printer platform" docs_link="https://docs.vzbot.org/vz235_printed"/>
+        <PrinterCard name="VZ330" src="/vz330_preview.jpg" description="The first VzBoT based on the Tronxy X5SA" docs_link="https://docs.vzbot.org/vz330_printed"/>
       </div>
     </div>
 
     <div class="flex flex-col w-full justify-center gap-4">
       <RadiantText
-        class="inline-flex items-center justify-center px-4 transition ease-out hover:text-neutral-600 hover:duration-300 hover:dark:text-neutral-400"
-        :duration="15"
+        class="inline-flex z-20 items-center justify-center px-4 transition ease-out hover:text-neutral-600 hover:duration-300 hover:dark:text-neutral-400"
+        :duration="5"
       >
         <span class="text-3xl font-bold">Our goals at VzBoT✨</span>
       </RadiantText>
 
       <div class="flex justify-center">
-        <div class="grid grid-cols-3 gap-2 justify-center w-fit">
+        <div class="grid grid-cols-3 gap-8 justify-center w-fit">
           <MeteorCard title="KISS" description="Keep it simple stupid is the main motto of VzBoT. We wan´t to keep our machines and parts simple, and reduce overengineering."/>
           <MeteorCard title="Make it fast" description="We try to push the limits with VzBoT. Chasing speeds but keeping a good print quality is the goal."/>
           <MeteorCard title="Open source" description="All of our findings are published to our GitHub or YouTube channel to keep development ongoing."/>
@@ -45,6 +45,9 @@ import FlipWords from "~/components/inspira/FlipWords.vue";
 import PrinterCard from "~/components/printers/PrinterCard.vue";
 import RadiantText from "~/components/inspira/RadiantText.vue";
 
+onMounted(() => {
+  window.scrollTo(0,0);
+})
 
 definePageMeta({
   layout: "landing-page-layout"

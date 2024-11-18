@@ -8,7 +8,10 @@ interface IPrinterCardProps {
   name: string
   description: string
   src: string
+  docs_link: string
 }
+
+const router = useRouter()
 
 defineProps<IPrinterCardProps>()
 </script>
@@ -16,7 +19,7 @@ defineProps<IPrinterCardProps>()
 <template>
   <ClientOnly>
     <CardContainer>
-      <CardBody class="group/card shadow-md relative hover:cursor-pointer size-auto rounded-xl border border-black/[0.1] bg-gray-50 p-6 sm:w-[30rem] dark:border-white/[0.2] dark:bg-black dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1]">
+      <CardBody class="group/card shadow-md relative size-auto rounded-xl border border-black/[0.1] bg-gray-50 p-6 sm:w-[30rem] dark:border-white/[0.2] dark:bg-black dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1]">
         <CardItem
           as="p"
           :translate-z="50"
@@ -41,18 +44,16 @@ defineProps<IPrinterCardProps>()
           <CardItem
             :translate-z="20"
             as="a"
-            href="https://rahulv.dev"
+            :href="docs_link"
             target="__blank"
-            class="rounded-xl px-4 py-2 text-xs font-normal dark:text-white"
+            class="rounded-xl hover:underline px-4 py-2 text-xs font-normal dark:text-white z-30"
           >
             To the docs →
           </CardItem>
           <CardItem
             :translate-z="20"
-            as="button"
-            class="rounded-xl bg-black px-4 py-2 text-xs font-bold text-white dark:bg-white dark:text-black"
           >
-            Learn more
+            <Button @click="router.push('/' + name)">Learn more</Button>
           </CardItem>
         </div>
 

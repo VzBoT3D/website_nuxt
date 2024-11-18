@@ -9,15 +9,16 @@ export default defineNuxtConfig({
     '@nuxtjs/color-mode',
     '@nuxt/image',
     '@vueuse/motion/nuxt',
-    '@nuxt/fonts'
+    '@nuxt/fonts',
+    'nuxt-swiper'
   ],
   image: {
     dir: "public",
     provider: 'ipx'
   },
   colorMode: {
-    preference: 'system', // default value of $colorMode.preference
-    fallback: 'light', // fallback value if not system preference found
+    preference: 'dark', // default value of $colorMode.preference
+    fallback: 'dark', // fallback value if not system preference found
     classSuffix: '',
   },
   shadcn: {

@@ -10,14 +10,22 @@ const openDiscord = () => {
   window.open("https://discord.gg/vzbot", "_blank")
 }
 
+const router = useRouter()
+
+const colorMode = useColorMode()
+
+const logoURL = computed(() => {
+  return colorMode.value === 'light' ? '/logo_with_text_dark.png' : '/logo_with_text.png'
+})
+
 </script>
 
 <template>
-  <nav class="fixed top-0 w-full p-2 bg-background opacity-100 z-20">
-    <div class="flex items-center justify-start p-1 px-3 w-full h-12 rounded-xl">
+  <nav class="top-0 w-full p-2 bg-background opacity-100 z-20">
+    <div class="flex items-center justify-start p-1 h-12 px-3 w-full rounded-xl">
       <div class="h-full w-1/3 flex opacity-100">
-        <div class="flex hover:bg-secondary transition-colors duration-150 hover:cursor-pointer rounded-md">
-          <NuxtImg class="object-contain scale-95 p-1" src="/logo_with_text.png"/>
+        <div @click="router.push('/')" class="flex hover:bg-secondary transition-colors duration-150 hover:cursor-pointer rounded-md">
+          <NuxtImg class="object-contain scale-95 p-1" :src="logoURL"/>
         </div>
       </div>
 
@@ -27,19 +35,20 @@ const openDiscord = () => {
             <Button variant="ghost">Machines</Button>
           </DropdownMenuTrigger>
           <DropdownMenuContent align="end">
-            <DropdownMenuItem>
-              <div>
-                <p>VZ235</p>
+            <DropdownMenuItem @click="router.push('/vz235')">
+              <div class="flex flex-col max-w-36">
+                <p class="text-xl font-thin">VZ235</p>
               </div>
             </DropdownMenuItem>
-            <DropdownMenuItem>
-              <div>
-                <p>VZ330</p>
+            <DropdownMenuItem @click="router.push('/vz330')">
+              <div class="flex flex-col max-w-36">
+                <p class="text-xl font-thin">VZ330</p>
               </div>
             </DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
         <Button variant="ghost">Meet the team</Button>
+        <Button variant="ghost">Community</Button>
         <Button variant="ghost">Docs</Button>
       </div>
 
