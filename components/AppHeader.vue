@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '@/components/ui/dropdown-menu'
 import {Icon} from "@iconify/vue";
 
 const openGithub = () => {
@@ -24,7 +23,7 @@ const logoURL = computed(() => {
   <nav class="top-0 w-full p-2 bg-background opacity-100 z-20">
     <div class="flex items-center justify-start p-1 h-12 px-3 w-full rounded-xl">
       <div class="h-full w-1/3 flex opacity-100">
-        <div @click="router.push('/')" class="flex hover:bg-secondary transition-colors duration-150 hover:cursor-pointer rounded-md">
+        <div @click="navigateTo('/')" class="flex hover:bg-secondary transition-colors duration-150 hover:cursor-pointer rounded-md">
           <NuxtImg class="object-contain scale-95 p-1" :src="logoURL"/>
         </div>
       </div>
@@ -35,20 +34,35 @@ const logoURL = computed(() => {
             <Button variant="ghost">Machines</Button>
           </DropdownMenuTrigger>
           <DropdownMenuContent align="end">
-            <DropdownMenuItem @click="router.push('/vz235')">
+            <DropdownMenuItem @click="navigateTo('/vz235')">
               <div class="flex flex-col max-w-36">
                 <p class="text-xl font-thin">VZ235</p>
               </div>
             </DropdownMenuItem>
-            <DropdownMenuItem @click="router.push('/vz330')">
+            <DropdownMenuItem @click="navigateTo('/vz330')">
               <div class="flex flex-col max-w-36">
                 <p class="text-xl font-thin">VZ330</p>
               </div>
             </DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
-        <Button variant="ghost">Meet the team</Button>
-        <Button variant="ghost">Community</Button>
+        <DropdownMenu>
+          <DropdownMenuTrigger>
+            <Button variant="ghost">Community</Button>
+          </DropdownMenuTrigger>
+          <DropdownMenuContent>
+            <DropdownMenuItem  @click="router.push('/community')">
+              <div class="flex flex-col max-w-36">
+                <p class="text-xl font-thin">Serials</p>
+              </div>
+            </DropdownMenuItem>
+            <DropdownMenuItem>
+              <div class="flex flex-col max-w-36">
+                <p class="text-xl font-thin">Meet the team</p>
+              </div>
+            </DropdownMenuItem>
+          </DropdownMenuContent>
+        </DropdownMenu>
         <Button variant="ghost">Docs</Button>
       </div>
 
@@ -64,7 +78,3 @@ const logoURL = computed(() => {
     </div>
   </nav>
 </template>
-
-<style scoped>
-
-</style>

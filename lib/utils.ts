@@ -4,3 +4,9 @@ import { twMerge } from 'tailwind-merge'
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
 }
+export function formatDateToMonthYear(date: Date): string {
+  return new Intl.DateTimeFormat(navigator.language, {
+    month: 'long',
+    year: 'numeric',
+  }).format(date);
+}

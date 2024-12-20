@@ -2,6 +2,11 @@
 export default defineNuxtConfig({
   compatibilityDate: '2024-04-03',
   devtools: { enabled: false },
+  ssr: false,
+  runtimeConfig: {
+    BACKEND_TOKEN: process.env.BACKEND_TOKEN,
+    BACKEND_URL: process.env.BACKEND_URL || "http://localhost:8080",
+  },
   modules: [
     '@nuxtjs/tailwindcss',
     'shadcn-nuxt',
@@ -24,5 +29,5 @@ export default defineNuxtConfig({
   shadcn: {
     prefix: '',
     componentDir: './components/ui'
-  }
+  },
 })

@@ -1,18 +1,15 @@
-interface ISerial {
+export interface ISerial {
     id: number,
     mediaURL: string,
     description: string
     country: string
+    serialID: number
     printer: {
         name: string
     }
     attributes?: {
-        location: {
-            capital: string[]
-            latlng: number[]
-        }
-        capitalInfo: {
-            latlng: number[]
-        }
+        latitude: number,
+        longitude: number
     }
+    createdAt: string
 }

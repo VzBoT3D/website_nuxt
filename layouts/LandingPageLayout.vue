@@ -3,7 +3,7 @@
 </script>
 
 <template>
-  <div class="absolute flex-1 w-full h-full z-10">
+  <div class="absolute flex-1 w-full h-full z-0">
     <ParticlesBg
       class="fixed opacity-70 h-full w-full"
       :quantity="250"
@@ -14,7 +14,7 @@
     />
   </div>
 
-  <div class="min-h-screen w-full flex flex-col z-0 justify-between">
+  <div class="min-h-screen w-full flex flex-col z-10 justify-between">
     <AppHeader/>
     <slot/>
     <AppFooter class="z-20"/>
