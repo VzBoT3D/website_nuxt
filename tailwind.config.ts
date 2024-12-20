@@ -56,5 +56,5 @@ export default {
     },
   },
 
-  plugins: [animate, setupInspiraUI],
+  plugins: [animate, setupInspiraUI, require('@tailwindcss/typography')],
 } satisfies Config;

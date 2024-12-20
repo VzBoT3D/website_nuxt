@@ -3,7 +3,7 @@
 </script>
 
 <template>
-  <div class="absolute flex-1 w-full h-full z-0">
+  <div class="absolute flex-1 w-full h-full z-[-1]">
     <ParticlesBg
       class="fixed opacity-70 h-full w-full"
       :quantity="250"
