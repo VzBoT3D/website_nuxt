@@ -44,6 +44,7 @@ import HeroSection from "~/components/landing_page/HeroSection.vue";
 import FlipWords from "~/components/inspira/FlipWords.vue";
 import PrinterCard from "~/components/printers/PrinterCard.vue";
 import RadiantText from "~/components/inspira/RadiantText.vue";
+import VZLogo from "~/components/VZLogo.vue";
 
 onMounted(() => {
   window.scrollTo(0,0);
