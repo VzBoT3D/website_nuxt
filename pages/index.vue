@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-1 flex-col justify-center overflow-hidden bg-background gap-16">
+  <div class="flex flex-1 flex-col justify-center overflow-hidden gap-16">
     <div class="h-[calc(100vh)]">
       <HeroSection/>
     </div>

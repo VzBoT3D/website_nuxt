@@ -56,7 +56,7 @@ const logoURL = computed(() => {
                 <p class="text-xl font-thin">Serials</p>
               </div>
             </DropdownMenuItem>
-            <DropdownMenuItem>
+            <DropdownMenuItem @click="navigateTo('/authors')">
               <div class="flex flex-col max-w-36">
                 <p class="text-xl font-thin">Meet the team</p>
               </div>

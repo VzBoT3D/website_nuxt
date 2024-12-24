@@ -1,4 +1,4 @@
-export interface IBlog {
+export interface IPost {
     title: string
     content: string
     createdAt: string
@@ -8,6 +8,8 @@ export interface IBlog {
 
 export interface IAuthor {
     name: string
+    id: number
     profilePicture: string
     description: string
+    posts: IPost[]
 }

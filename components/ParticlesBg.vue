@@ -1,10 +1,10 @@
 <template>
   <div
     ref="canvasContainerRef"
-    :class="$props.class"
+    :class="$props.class + ' z-0'"
     aria-hidden="true"
   >
-    <canvas class="h-full w-full" ref="canvasRef"></canvas>
+    <canvas class="h-full w-full z-0" ref="canvasRef"></canvas>
   </div>
 </template>
 

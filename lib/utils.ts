@@ -23,3 +23,14 @@ export function toReadableLocaleDate(isoDate: string): string {
     second: "2-digit",
   });
 };
+
+export const calculateReadingTime = (text: string): number => {
+  const words = text.split(/\s+/).length;
+  const wordsPerMinute = 200;
+  return Math.ceil(words / wordsPerMinute);
+};
+
+export const formatToMinutes = (minutes: number): string => {
+  if (minutes == 1) return "1 minute"
+  return `${minutes} minutes`
+}

@@ -81,7 +81,7 @@ console.log(donutData)
 </script>
 
 <template>
-  <div class="flex flex-col items-center gap-16 justify-center overflow-hidden rounded-lg bg-background md:shadow-xl">
+  <div class="flex flex-col items-center gap-16 justify-center overflow-hidden rounded-lg md:shadow-xl">
     <div class="flex flex-col -space-y-10 h-screen items-center justify-center">
       <div class="pointer-events-none z-10 whitespace-pre-wrap bg-gradient-to-b from-black to-gray-300/80 bg-clip-text text-center text-8xl font-semibold leading-none text-transparent dark:from-white dark:to-slate-900/10">
         <p>VZ around the world</p>

@@ -1,17 +1,18 @@
 <script setup lang="ts">
 
-import type {IBlog} from "~/lib/types/Blog";
+import type {IPost} from "~/lib/types/Blog";
 import {toReadableLocaleDate} from "~/lib/utils";
 import VueMarkdown from 'vue-markdown-render'
+import TracingBeam from "~/components/inspira/TracingBeam.vue";
 
 defineProps<{
-  blog: IBlog
+  blog: IPost
 }>()
 
 </script>
 
 <template>
-  <div class="flex flex-col items-center gap-8 w-10/12">
+  <div class="flex flex-1 flex-col items-center gap-8">
     <p class="text-6xl font-thin underline">{{blog.title}}</p>
     <Card>
       <CardContent class="p-4">
@@ -23,18 +24,20 @@ defineProps<{
           <div>
             <p>Written {{toReadableLocaleDate(blog.createdAt)}}</p>
           </div>
-          <Button class="w-fit" size="sm" variant="secondary">View more from this author</Button>
+          <Button @click="navigateTo('/authors/' + blog.author.id)" class="w-fit" size="sm" variant="secondary">View more from this author</Button>
         </div>
       </CardContent>
     </Card>
 
-    <Card class="w-full prose">
-      <CardContent class="p-6">
-        <VueMarkdown :source="blog.content"></VueMarkdown>
+    <Card class="prose prose-xl dark:prose-invert">
+      <CardContent class="p-8">
+        <TracingBeam>
+          <VueMarkdown class="p-2" :source="blog.content"></VueMarkdown>
+        </TracingBeam>
       </CardContent>
     </Card>
 
-
+    <Button @click="navigateTo('/posts')" variant="secondary" class="drop-shadow-md m-4">Read more posts</Button>
   </div>
 </template>
 

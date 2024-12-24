@@ -3,21 +3,23 @@
 </script>
 
 <template>
-  <div class="absolute flex-1 w-full h-full z-[-1]">
-    <ParticlesBg
-      class="fixed opacity-70 h-full w-full"
-      :quantity="250"
-      :ease="100"
-      :color="isDark ? '#FFF' : '#000'"
-      :staticity="10"
-      refresh
-    />
-  </div>
+  <div class="z-0">
+    <div class="z-[-3] absolute flex-1 w-full h-full ">
+      <ParticlesBg
+        class="fixed opacity-70 h-full w-full"
+        :quantity="250"
+        :ease="100"
+        :color="isDark ? '#FFF' : '#000'"
+        :staticity="10"
+        refresh
+      />
+    </div>
 
-  <div class="min-h-screen w-full flex flex-col z-10 justify-between">
-    <AppHeader/>
-    <slot/>
-    <AppFooter class="z-20"/>
+    <div class="min-h-screen bg-transparent w-full flex flex-col z-20 justify-between">
+      <AppHeader class="z-30"/>
+      <slot/>
+      <AppFooter class="z-30"/>
+    </div>
   </div>
 </template>
 

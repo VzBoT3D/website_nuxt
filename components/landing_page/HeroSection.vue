@@ -4,9 +4,10 @@ import CardContainer from "~/components/inspira/CardContainer.vue";
 import CardBody from "~/components/inspira/CardBody.vue";
 import CardItem from "~/components/inspira/CardItem.vue";
 import BorderBeam from "~/components/inspira/BorderBeam.vue";
-import type {IBlog} from "~/lib/types/Blog";
+import type {IPost} from "~/lib/types/Blog";
+import {calculateReadingTime, formatToMinutes} from "../../lib/utils";
 
-const {data} = await useFetch<{blog: IBlog}>("/api/blog/latest")
+const {data} = await useFetch<{blog: IPost}>("/api/blog/latest")
 const blog = data.value?.blog!
 
 const initial = ref({
@@ -72,6 +73,7 @@ const enter = ref({
               </div>
 
               <p class="text-xl text-foreground">{{blog.title}}</p>
+              <p>{{formatToMinutes(calculateReadingTime(blog.content))}} read</p>
               <Button @click="navigateTo('/posts/' + blog.id)" class="w-fit">Click to read more...</Button>
             </div>
           </CardItem>

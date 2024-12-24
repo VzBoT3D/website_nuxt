@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type {IBlog} from "~/lib/types/Blog";
+import type {IPost} from "~/lib/types/Blog";
 import BlogPost from "~/components/BlogPost.vue";
 
 definePageMeta({
@@ -9,7 +9,7 @@ definePageMeta({
 const route = useRoute()
 const id = route.params.id
 
-const {data, error} = useFetch<{blog: IBlog}>("/api/blog/" + id)
+const {data, error} = useFetch<{blog: IPost}>("/api/blog/" + id)
 
 </script>
 
@@ -22,8 +22,6 @@ const {data, error} = useFetch<{blog: IBlog}>("/api/blog/" + id)
   <div v-else class="flex justify-center items-center">
     <BlogPost :blog="data.blog"/>
   </div>
-
-
 </template>
 
 <style scoped>
