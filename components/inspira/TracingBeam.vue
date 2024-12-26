@@ -119,7 +119,8 @@ function updateScrollYProgress() {
 
     scrollPercentage.value = (windowHeight - boundingRect.top) / (windowHeight + elementHeight);
 
-    scrollYProgress.value = (boundingRect.y / windowHeight) * -1;
+    scrollYProgress.value = (boundingRect.y / windowHeight) * -1 * 0.75;
+
   }
 }
 

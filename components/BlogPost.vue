@@ -30,9 +30,11 @@ defineProps<{
     </Card>
 
     <Card class="prose prose-xl dark:prose-invert">
-      <CardContent class="p-8">
-        <TracingBeam>
-          <VueMarkdown class="p-2" :source="blog.content"></VueMarkdown>
+      <CardContent class="p-10">
+        <TracingBeam class="px-2">
+          <div>
+            <VueMarkdown :source="blog.content"></VueMarkdown>
+          </div>
         </TracingBeam>
       </CardContent>
     </Card>

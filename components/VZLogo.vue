@@ -72,6 +72,6 @@
   fill-opacity: 0;
   stroke-dasharray: 1400;
   stroke-dashoffset: 1400;
-  animation: loading 8s ease-in infinite;
+  animation: loading 7s ease-in-out infinite;
 }
 </style>
