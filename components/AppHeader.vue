@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import {Icon} from "@iconify/vue";
+import type {IPrinterProfile} from "~/lib/types/PrinterProfile";
 
 const openGithub = () => {
   window.open("https://github.com/VzBoT3D", "_blank")
@@ -8,6 +9,8 @@ const openGithub = () => {
 const openDiscord = () => {
   window.open("https://discord.gg/vzbot", "_blank")
 }
+
+const {data} = useFetch<{printerData: IPrinterProfile[]}>("/api/printer/profiles")
 
 const router = useRouter()
 
@@ -34,14 +37,9 @@ const logoURL = computed(() => {
             <Button variant="ghost">Machines</Button>
           </DropdownMenuTrigger>
           <DropdownMenuContent align="end">
-            <DropdownMenuItem @click="navigateTo('/vz235')">
+            <DropdownMenuItem v-for="printerProfile in data?.printerData" @click="navigateTo('/printer/' + printerProfile.printer.name)">
               <div class="flex flex-col max-w-36">
-                <p class="text-xl font-thin">VZ235</p>
-              </div>
-            </DropdownMenuItem>
-            <DropdownMenuItem @click="navigateTo('/vz330')">
-              <div class="flex flex-col max-w-36">
-                <p class="text-xl font-thin">VZ330</p>
+                <p class="text-xl font-thin">{{printerProfile.printer.name}}</p>
               </div>
             </DropdownMenuItem>
           </DropdownMenuContent>
