@@ -18,7 +18,7 @@ const {data, error} = useFetch<{author: IAuthor }>("/api/author/" + id)
     <Button class="w-fit">Check out all authors</Button>
   </div>
 
-  <div v-else class="flex justify-center items-center">
+  <div v-else class="flex justify-center items-center p-8">
     <Author :author="data.author" :show-posts="true"/>
   </div>
 </template>

@@ -92,7 +92,7 @@ console.log(donutData)
     <div class="flex flex-col justify-center items-center gap-8 w-full pb-48">
       <p class="text-center font-thin text-5xl pb-20">VzBoT in numbers</p>
 
-      <div class="flex gap-8">
+      <div class="flex flex-wrap justify-center gap-8">
         <SerialsWidget :data="result"/>
         <PrinterDistributionWidget :data="donutData"/>
       </div>

@@ -37,7 +37,7 @@ defineProps<IPrinterCardProps>()
         <CardItem :translate-z="100" class="mt-4 w-full">
           <NuxtImg :src="src"
                    height="1000"
-                   class="h-60 w-full rounded-xl group-hover/card:shadow-xl"
+                   class="h-60 w-full object-cover rounded-xl group-hover/card:shadow-xl"
           />
         </CardItem>
         <div class="mt-20 flex items-center justify-between">
@@ -53,7 +53,7 @@ defineProps<IPrinterCardProps>()
           <CardItem
             :translate-z="20"
           >
-            <Button @click="router.push('/' + name)">Learn more</Button>
+            <Button @click="router.push('/printers/' + name)">Learn more</Button>
           </CardItem>
         </div>
 

@@ -17,7 +17,7 @@ const {data} = useFetch<{authors: IAuthor[]}>("/api/author/all")
   </div>
 
   <div v-else class="flex flex-col gap-4 items-center p-20">
-    <p class="text-4xl font-thin">VzBoT's team members</p>
+    <p class="text-4xl font-thin text-center">VzBoT's team members</p>
     <div class="flex flex-wrap gap-4 justify-center content-center">
       <Author v-for="author in data.authors" :show-posts="false" :author="author"/>
     </div>

@@ -1,21 +1,24 @@
 <template>
-  <div class="flex flex-1 flex-col justify-center overflow-hidden gap-16">
+  <div class="flex justify-center place-items-center" v-if="!(data && data.printerData)">
+    <p class="text-2xl font-thin">There was an error fetching the page</p>
+  </div>
+
+  <div v-else class="flex flex-1 flex-col justify-center overflow-hidden gap-16">
     <div class="h-[calc(100vh)]">
       <HeroSection/>
     </div>
 
-    <div class="flex flex-col w-full justify-center pb-16 z-10 gap-12">
-      <div class="flex justify-center text-5xl font-normal text-neutral-600 dark:text-neutral-400">
+    <div class="flex flex-col w-full justify-center p-8 lg:p-0 pb-16 z-10 gap-12">
+      <div class="flex justify-center text-3xl lg:text-5xl font-normal text-neutral-600 dark:text-neutral-400">
         Meet our
         <FlipWords
-          :words="['Printers', 'Vz235', 'Vz330']"
+          :words="Array.prototype.concat(['Printers'], data.printerData.map((profile) => profile.printer.name))"
           :duration="3000"
-          class="text-5xl !text-primary"
+          class="text-3xl lg:text-5xl !text-primary"
         />
       </div>
       <div v-motion-fade-visible class="flex gap-8 justify-center">
-        <PrinterCard name="VZ235" src="/vz235_preview.jpg" description="Our 235x235 high speed printer platform" docs_link="https://docs.vzbot.org/vz235_printed"/>
-        <PrinterCard name="VZ330" src="/vz330_preview.jpg" description="The first VzBoT based on the Tronxy X5SA" docs_link="https://docs.vzbot.org/vz330_printed"/>
+        <PrinterCard v-for="profile in data.printerData" :name="profile.printer.name" :src="profile.medias[0].location" description="" :docs_link="profile.learnMoreURL"/>
       </div>
     </div>
 
@@ -28,7 +31,7 @@
       </RadiantText>
 
       <div class="flex justify-center">
-        <div class="grid grid-cols-3 gap-8 justify-center w-fit">
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 justify-center w-fit py-20">
           <MeteorCard title="KISS" description="Keep it simple stupid is the main motto of VzBoT. We wan´t to keep our machines and parts simple, and reduce overengineering."/>
           <MeteorCard title="Make it fast" description="We try to push the limits with VzBoT. Chasing speeds but keeping a good print quality is the goal."/>
           <MeteorCard title="Open source" description="All of our findings are published to our GitHub or YouTube channel to keep development ongoing."/>
@@ -45,10 +48,13 @@ import FlipWords from "~/components/inspira/FlipWords.vue";
 import PrinterCard from "~/components/printers/PrinterCard.vue";
 import RadiantText from "~/components/inspira/RadiantText.vue";
 import VZLogo from "~/components/VZLogo.vue";
+import type {IPrinterProfile} from "~/lib/types/PrinterProfile";
 
 onMounted(() => {
   window.scrollTo(0,0);
 })
+
+const { data } = useFetch<{printerData: IPrinterProfile[]}>("/api/printer/profiles")
 
 definePageMeta({
   layout: "landing-page-layout"

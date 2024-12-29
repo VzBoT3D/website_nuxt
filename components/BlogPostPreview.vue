@@ -19,7 +19,7 @@ defineProps<{
     </CardHeader>
     <CardContent>
       <div class="flex flex-col gap-2">
-        <div class="overflow-hidden h-24 w-96 bg-clip-text text-transparent bg-gradient-to-b from-foreground">
+        <div class="overflow-hidden h-24 w-fit lg:w-96 bg-clip-text text-transparent bg-gradient-to-b from-foreground">
           <VueMarkdown :source="post.content"/>
         </div>
         <Button @click="navigateTo('/posts/' + post.id)" variant="outline">Read full</Button>

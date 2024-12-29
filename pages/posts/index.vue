@@ -16,8 +16,8 @@ const {data} = useFetch<{posts: IPost[]}>("/api/blog/all")
     <p class="text-3xl">Oh no, an error occurred :(</p>
   </div>
 
-  <div v-else class="flex flex-col gap-4 items-center p-20">
-    <p class="text-4xl font-thin">VzBoT's blog posts</p>
+  <div v-else class="flex flex-col gap-4 items-center p-8 lg:p-20">
+    <p class="text-4xl font-thin text-center">VzBoT's blog posts</p>
     <div class="flex flex-wrap gap-4 justify-center content-center">
       <BlogPostPreview v-for="post in data.posts" :post="post"/>
     </div>

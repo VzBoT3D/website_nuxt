@@ -12,7 +12,7 @@ defineProps<MeteorCardProps>()
 </script>
 <template>
   <ClientOnly>
-    <div class="flex flex-col h-full items-center justify-center py-24 z-20">
+    <div class="flex flex-col h-full items-center justify-center z-20">
       <div class="relative w-full h-full max-w-xs">
         <div class="absolute inset-0 size-full scale-[0.80] rounded-full bg-gradient-to-r from-blue-500 to-teal-500 blur-2xl dark:blur-3xl"/>
         <div class="relative flex h-full flex-col items-start justify-start overflow-hidden rounded-2xl border border-gray-100 dark:border-gray-800 bg-gray-100 dark:bg-gray-900 px-4 py-8 shadow-xl">

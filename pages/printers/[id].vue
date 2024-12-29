@@ -2,10 +2,6 @@
 
 import type {IPrinter} from "~/lib/types/PrinterProfile";
 import VueMarkdown from 'vue-markdown-render'
-import {calculateReadingTime, formatToMinutes} from "~/lib/utils";
-import CardBody from "~/components/inspira/CardBody.vue";
-import CardItem from "~/components/inspira/CardItem.vue";
-import CardContainer from "~/components/inspira/CardContainer.vue";
 import InteractiveHoverButton from "~/components/inspira/InteractiveHoverButton.vue";
 
 definePageMeta({
@@ -37,10 +33,10 @@ const openKitURL = () => {
     <Button>View all printers</Button>
   </div>
 
-  <div v-else class="flex flex-1 flex-col gap-8 p-6 ">
+  <div v-else class="flex flex-1 flex-col gap-8 p-6">
     <p class="text-6xl font-thin text-center">{{data.printerData.name}}</p>
-    <div class=" items-center grid grid-cols-1 lg:grid-cols-2 grid-flow-col">
-      <div class="w-11/12 justify-self-center">
+    <div class="lg:items-center gap-4 lg:gap-0 grid grid-cols-1 lg:grid-cols-2">
+      <div class="lg:w-11/12 w-full lg:justify-self-center">
         <Swiper
           :modules="[SwiperAutoplay, SwiperNavigation, SwiperPagination]"
           :slides-per-view="1"
@@ -63,7 +59,7 @@ const openKitURL = () => {
           <VueMarkdown class="text-md font-thin" :source="data.printerData.profile[0].description"/>
         </div>
 
-        <div class="flex gap-4">
+        <div class="flex gap-4 justify-center lg:justify-start">
           <Button @click="openLearnMoreURL" size="lg">Learn more</Button>
           <Button @click="openKitURL" v-if="data.printerData.profile[0].kitURL" size="lg">Buy now</Button>
         </div>

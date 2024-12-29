@@ -12,8 +12,8 @@ defineProps<{
 </script>
 
 <template>
-  <div class="flex flex-1 flex-col items-center gap-8">
-    <p class="text-6xl font-thin underline">{{blog.title}}</p>
+  <div class="flex flex-1 flex-col items-center gap-8 p-8">
+    <p class="text-3xl lg:text-6xl font-thin underline">{{blog.title}}</p>
     <Card>
       <CardContent class="p-4">
         <div class="flex flex-col gap-2">
@@ -29,13 +29,13 @@ defineProps<{
       </CardContent>
     </Card>
 
-    <Card class="prose prose-xl dark:prose-invert">
+    <Card class="prose prose-xl text-sm lg:text-lg dark:prose-invert">
       <CardContent class="p-10">
-        <TracingBeam class="px-2">
-          <div>
+        <TracingBeam class="hidden lg:flex">
             <VueMarkdown :source="blog.content"></VueMarkdown>
-          </div>
         </TracingBeam>
+
+        <VueMarkdown class="lg:hidden" :source="blog.content"></VueMarkdown>
       </CardContent>
     </Card>
 
