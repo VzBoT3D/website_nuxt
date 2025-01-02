@@ -1,18 +1,18 @@
-FROM oven/bun:latest as build
+FROM node:20-slim AS base
+ENV PNPM_HOME="/pnpm"
+ENV PATH="$PNPM_HOME:$PATH"
+RUN corepack enable
 
 WORKDIR /app
-COPY package.json bun.lockb tsconfig.json ./
+COPY package.json pnpm-lock.yaml tsconfig.json ./
 
-RUN bun install --verbose
+FROM base AS prod-deps
+RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm install --prod --frozen-lockfile
 
-# Copy the rest of the application files
+FROM base AS build
+RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm install --frozen-lockfile
 COPY . .
-
-# Build the application for production
-RUN bun run build
-
-RUN rm -rf .output/server/node_modules
-RUN bun install --cwd .output/server/
+RUN pnpm run build
 
 FROM node:lts-slim as runner
 
