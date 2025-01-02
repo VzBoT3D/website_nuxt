@@ -36,6 +36,7 @@ jobs:
           key: ${{ secrets.SERVER_SSH_KEY }}
           passphrase: ${{ secrets.SERVER_SSH_PASSPHRASE }}
           port: ${{ secrets.SERVER_SSH_PORT }}
+          fingerprint: ${{ secrets.SSH_FINGERPRINT }}
           script: |
             echo "Starting deployment"
             # Add your deployment commands here
