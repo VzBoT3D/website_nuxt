@@ -40,8 +40,8 @@ jobs:
       - name: Add server's SSH public key to known_hosts
         run: |
           mkdir -p ~/.ssh
-          echo "${{secrets.SSH_PUBLIC_KEY}}" >> ~/.ssh/known_hosts
-          chmod 644 ~/.ssh/known_hosts
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_ed25519
+          chmod 600 ~/.ssh/id_ed25519
 
       - name: Deploy application
         run: |
