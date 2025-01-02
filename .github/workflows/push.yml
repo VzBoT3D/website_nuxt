@@ -6,7 +6,7 @@ on:
       - master
 
 jobs:
-  build-and-deploy:
+  build-and-push:
     runs-on: ubuntu-latest
 
     steps:
@@ -25,7 +25,9 @@ jobs:
           docker buildx create --use
           docker buildx build --platform linux/amd64,linux/arm64 \
             -t devinfritz/vzbot-web-nuxt:stage-${COMMIT_HASH} --push .
-
+  execute:
+    runs-on: ubuntu-latest
+    steps:
       - name: SSH and Execute Commands
         uses: appleboy/ssh-action@v0.1.7
         with:
