@@ -41,7 +41,7 @@ jobs:
       - name: Add server's SSH public key to known_hosts
         run: |
           mkdir -p ~/.ssh
-          ssh-keyscan -H ${{secrets.SERVER_HOST}} >> ~/.ssh/known_hosts
+          echo "${{ secrets.SERVER_PUBLIC_KEY }}" >> ~/.ssh/known_hosts
           chmod 644 ~/.ssh/known_hosts
 
       - name: Deploy application
