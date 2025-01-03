@@ -36,4 +36,4 @@ jobs:
           username: github
           password: ${{ secrets.SERVER_PASSWORD }}
           port: ${{ secrets.SERVER_SSH_PORT }}
-          script: whoami
+          script: ./deploy.sh stage
