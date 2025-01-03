@@ -23,7 +23,9 @@ jobs:
           COMMIT_HASH=$(echo $GITHUB_SHA | cut -c1-7)
           docker buildx create --use
           docker buildx build --platform linux/amd64,linux/arm64 \
-            -t devinfritz/vzbot-web-nuxt:stage-${COMMIT_HASH} --push .
+          -t devinfritz/vzbot-web-nuxt:stage-${COMMIT_HASH} \
+          -t devinfritz/vzbot-web-nuxt:stage-latest \
+          --push .
   deploy:
     runs-on: ubuntu-latest
     needs: build-and-push
