@@ -33,7 +33,7 @@ const openKitURL = () => {
     <Loading/>
   </div>
 
-  <div class="flex flex-col gap-2 justify-center items-center" v-if="!(data?.printerData && data.printerData.profile && data.printerData.profile.length > 0)">
+  <div class="flex flex-col gap-2 justify-center items-center" v-else-if="!(data?.printerData && data.printerData.profile && data.printerData.profile.length > 0)">
     <p class="text-3xl font-thin">The given printer was not found :(</p>
     <Button>View all printers</Button>
   </div>

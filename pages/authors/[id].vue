@@ -18,7 +18,7 @@ const {data, error, status} = useFetch<{author: IAuthor }>("/api/author/" + id)
     <Loading/>
   </div>
 
-  <div v-if="error || !data?.author" class="flex flex-col items-center">
+  <div v-else-if="error || !data?.author" class="flex flex-col items-center">
     <p class="text-4xl text-center">The given author does not exist</p>
     <Button class="w-fit">Check out all authors</Button>
   </div>

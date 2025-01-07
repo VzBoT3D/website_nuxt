@@ -1,5 +1,9 @@
 <template>
-  <div class="flex justify-center place-items-center" v-if="!(data && data.printerData)">
+  <div v-motion-fade v-if="status === 'pending'">
+    <Loading/>
+  </div>
+
+  <div class="flex justify-center place-items-center" v-else-if="!(data && data.printerData)">
     <p class="text-2xl font-thin">There was an error fetching the page</p>
   </div>
 
@@ -49,12 +53,13 @@ import PrinterCard from "~/components/printers/PrinterCard.vue";
 import RadiantText from "~/components/inspira/RadiantText.vue";
 import VZLogo from "~/components/VZLogo.vue";
 import type {IPrinterProfile} from "~/lib/types/PrinterProfile";
+import Loading from "~/components/Loading.vue";
 
 onMounted(() => {
   window.scrollTo(0,0);
 })
 
-const { data } = useFetch<{printerData: IPrinterProfile[]}>("/api/printer/profiles")
+const { data, status } = useFetch<{printerData: IPrinterProfile[]}>("/api/printer/profiles")
 
 definePageMeta({
   layout: "landing-page-layout"

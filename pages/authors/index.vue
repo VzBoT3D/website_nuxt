@@ -23,7 +23,7 @@ const openDiscord = () => {
     <Loading/>
   </div>
 
-  <div class="text-center" v-if="!data?.teamData">
+  <div class="text-center" v-else-if="!data?.teamData">
     <p class="text-3xl">Oh no, an error occurred :(</p>
   </div>
 

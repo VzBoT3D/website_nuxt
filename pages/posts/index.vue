@@ -17,7 +17,7 @@ const {data, status} = useFetch<{posts: IPost[]}>("/api/blog/all")
     <Loading/>
   </div>
 
-  <div class="text-center" v-if="!data?.posts">
+  <div class="text-center" v-else-if="!data?.posts">
     <p class="text-3xl">Oh no, an error occurred :(</p>
   </div>
 

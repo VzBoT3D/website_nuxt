@@ -19,7 +19,7 @@ const {data, error, status} = useFetch<{blog: IPost}>("/api/blog/" + id)
     <Loading/>
   </div>
 
-  <div v-if="error || !data?.blog" class="flex flex-col items-center">
+  <div v-else-if="error || !data?.blog" class="flex flex-col items-center">
     <p class="text-4xl text-center">The given post does not exist</p>
     <Button class="w-fit">Browse all posts</Button>
   </div>

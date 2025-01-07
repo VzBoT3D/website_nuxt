@@ -17,7 +17,7 @@ const { data, status } = useFetch<{printerData: IPrinterProfile[]}>("/api/printe
     <Loading/>
   </div>
 
-  <div class="flex justify-center place-items-center" v-if="!(data && data.printerData)">
+  <div class="flex justify-center place-items-center" v-else-if="!(data && data.printerData)">
     <p class="text-2xl font-thin">There was an error fetching the page</p>
   </div>
 
