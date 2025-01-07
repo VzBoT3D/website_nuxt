@@ -7,12 +7,13 @@ import {DonutChart} from "~/components/ui/chart-donut";
 import {AreaChart} from "~/components/ui/chart-area";
 import SerialsWidget from "~/components/widgets/SerialsWidget.vue";
 import PrinterDistributionWidget from "~/components/widgets/PrinterDistributionWidget.vue";
+import Loading from "~/components/Loading.vue";
 
 definePageMeta({
   layout: 'landing-page-layout'
 })
 
-const { data } = await useFetch<{serialData: ISerial[], printerData: { [key: string]: number} }>("/api/community")
+const { data, status } = await useFetch<{serialData: ISerial[], printerData: { [key: string]: number} }>("/api/community")
 
 const serials = data.value?.serialData!
 const printerStats = data.value?.printerData!
@@ -76,12 +77,14 @@ const donutData = Object.keys(printerStats).map((k) => ({
   predicted: printerStats[k]
 }))
 
-console.log(donutData)
-
 </script>
 
 <template>
-  <div class="flex flex-col items-center gap-16 justify-center overflow-hidden rounded-lg md:shadow-xl">
+  <div v-motion-fade v-if="status !== 'success'">
+    <Loading/>
+  </div>
+
+  <div v-motion-fade v-else class="flex flex-col items-center gap-16 justify-center overflow-hidden rounded-lg md:shadow-xl">
     <div class="flex flex-col -space-y-10 h-screen items-center justify-center">
       <div class="pointer-events-none z-10 whitespace-pre-wrap bg-gradient-to-b from-black to-gray-300/80 bg-clip-text text-center text-8xl font-semibold leading-none text-transparent dark:from-white dark:to-slate-900/10">
         <p>VZ around the world</p>

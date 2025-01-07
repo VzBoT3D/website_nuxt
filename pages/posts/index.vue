@@ -2,16 +2,21 @@
 
 import type {IPost} from "~/lib/types/Blog";
 import BlogPostPreview from "~/components/BlogPostPreview.vue";
+import Loading from "~/components/Loading.vue";
 
 definePageMeta({
   layout: "landing-page-layout"
 })
 
-const {data} = useFetch<{posts: IPost[]}>("/api/blog/all")
+const {data, status} = useFetch<{posts: IPost[]}>("/api/blog/all")
 
 </script>
 
 <template>
+  <div v-motion-fade v-if="status === 'pending'">
+    <Loading/>
+  </div>
+
   <div class="text-center" v-if="!data?.posts">
     <p class="text-3xl">Oh no, an error occurred :(</p>
   </div>

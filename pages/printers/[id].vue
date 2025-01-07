@@ -3,6 +3,7 @@
 import type {IPrinter} from "~/lib/types/PrinterProfile";
 import VueMarkdown from 'vue-markdown-render'
 import InteractiveHoverButton from "~/components/inspira/InteractiveHoverButton.vue";
+import Loading from "~/components/Loading.vue";
 
 definePageMeta({
   layout: "landing-page-layout"
@@ -11,7 +12,7 @@ definePageMeta({
 const route = useRoute()
 const id = route.params.id
 
-const {data, error} = useFetch<{printerData: IPrinter}>("/api/printer/" + id)
+const {data, error, status} = useFetch<{printerData: IPrinter}>("/api/printer/" + id)
 
 const openLearnMoreURL = () => {
   if (data.value?.printerData?.profile) {
@@ -28,6 +29,10 @@ const openKitURL = () => {
 </script>
 
 <template>
+  <div v-motion-fade v-if="status === 'pending'">
+    <Loading/>
+  </div>
+
   <div class="flex flex-col gap-2 justify-center items-center" v-if="!(data?.printerData && data.printerData.profile && data.printerData.profile.length > 0)">
     <p class="text-3xl font-thin">The given printer was not found :(</p>
     <Button>View all printers</Button>

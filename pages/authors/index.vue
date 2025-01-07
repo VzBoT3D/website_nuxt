@@ -4,12 +4,13 @@ import type {IAuthor} from "~/lib/types/Blog";
 import BlogPostPreview from "~/components/BlogPostPreview.vue";
 import type {ITeam} from "~/lib/types/Team";
 import AuthorPreview from "~/components/AuthorPreview.vue";
+import Loading from "~/components/Loading.vue";
 
 definePageMeta({
   layout: "landing-page-layout"
 })
 
-const {data} = useFetch<{teamData: ITeam}>("/api/team")
+const {data, status} = useFetch<{teamData: ITeam}>("/api/team")
 
 const openDiscord = () => {
   window.open("https://discord.gg/vzbot", "_blank")
@@ -18,6 +19,10 @@ const openDiscord = () => {
 </script>
 
 <template>
+  <div v-motion-fade v-if="status === 'pending'">
+    <Loading/>
+  </div>
+
   <div class="text-center" v-if="!data?.teamData">
     <p class="text-3xl">Oh no, an error occurred :(</p>
   </div>
