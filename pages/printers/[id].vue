@@ -60,7 +60,7 @@ const openKitURL = () => {
         </Swiper>
       </div>
       <div class="flex flex-col gap-8">
-        <div class="flex flex-col gap-2">
+        <div class="flex flex-col gap-2 prose dark:prose-invert">
           <VueMarkdown class="text-md font-thin" :source="data.printerData.profile[0].description"/>
         </div>
 
