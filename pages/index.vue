@@ -21,7 +21,7 @@
           class="text-3xl lg:text-5xl !text-primary"
         />
       </div>
-      <div v-motion-fade-visible class="flex gap-8 justify-center">
+      <div v-motion-fade-visible class="flex gap-8 justify-center flex-wrap">
         <PrinterCard v-for="profile in data.printerData" :name="profile.printer.name" :src="profile.medias[0].location" description="" :docs_link="profile.learnMoreURL"/>
       </div>
     </div>
