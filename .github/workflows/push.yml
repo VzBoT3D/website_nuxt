@@ -49,3 +49,4 @@ jobs:
               ./deploy.sh production
             else
               ./deploy.sh stage
+            fi
