@@ -25,8 +25,6 @@ jobs:
           docker buildx create --use
           if [[ "${{ github.event_name }}" == "release" ]]; then
             TAG_PREFIX="prod"
-          elif [[ "${{GITHUB_REF_NAME}}" == "release" ]]; then
-            TAG_PREFIX="prod"
           else
             TAG_PREFIX="stage"
           fi
@@ -48,9 +46,6 @@ jobs:
           port: ${{ secrets.SERVER_SSH_PORT }}
           script: |
             if [ "${{ github.event_name }}" = "release" ]; then
-              echo running production
-              ./deploy.sh production
-            elif [ "${{ GITHUB_REF_NAME }}" = "release" ]; then
               echo running production
               ./deploy.sh production
             else
