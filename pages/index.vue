@@ -1,5 +1,5 @@
 <template>
-  <div v-motion-fade v-if="status === 'pending'">
+  <div v-motion-fade v-if="status === 'idle'">
     <Loading/>
   </div>
 
