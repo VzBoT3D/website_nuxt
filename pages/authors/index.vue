@@ -13,7 +13,7 @@ definePageMeta({
 const {data, status} = useFetch<{teamData: ITeam}>("/api/team")
 
 const openDiscord = () => {
-  window.open("https://discord.gg/vzbot", "_blank")
+  window.open("https://discord.gg/vzbot-829828765512106054", "_blank")
 }
 
 </script>

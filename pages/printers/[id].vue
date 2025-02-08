@@ -41,26 +41,26 @@ const openKitURL = () => {
   <div v-else class="flex flex-1 flex-col gap-8 p-6">
     <p class="text-6xl font-thin text-center">{{data.printerData.name}}</p>
     <div class="lg:items-center gap-4 lg:gap-0 grid grid-cols-1 lg:grid-cols-2">
-      <div class="lg:w-11/12 w-full lg:justify-self-center">
+      <div class="lg:w-11/12 w-full aspect-3/2 lg:justify-self-center">
         <Swiper
           :modules="[SwiperAutoplay, SwiperNavigation, SwiperPagination]"
           :slides-per-view="1"
           :loop="true"
           :autoplay="{
       delay: 8000,
-      disableOnInteraction: true,
+      disableOnInteraction: true
     }"
           :pagination="{ clickable: true }"
           navigation
           class="bg-accent rounded-md"
         >
           <SwiperSlide v-for="media in data.printerData.profile[0].medias" :key="media.id">
-            <NuxtImg :src="media.location"></NuxtImg>
+            <NuxtImg class="object-cover" :src="media.location"></NuxtImg>
           </SwiperSlide>
         </Swiper>
       </div>
       <div class="flex flex-col gap-8">
-        <div class="flex flex-col gap-2 prose dark:prose-invert">
+        <div class="prose dark:prose-invert">
           <VueMarkdown class="text-md font-thin" :source="data.printerData.profile[0].description"/>
         </div>
 

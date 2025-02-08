@@ -16,7 +16,7 @@ const openGithub = () => {
 }
 
 const openDiscord = () => {
-  window.open("https://discord.gg/vzbot", "_blank")
+  window.open("https://discord.gg/vzbot-829828765512106054", "_blank")
 }
 
 const {data} = useFetch<{printerData: IPrinterProfile[]}>("/api/printer/profiles")
